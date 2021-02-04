@@ -1,1 +1,7 @@
 javascript ES6 => untuk hybrid
+git init .
+git remote add origin URL
+git checkout -b namabranch
+git add .
+git commit -m "comment"
+git push -u namabranch // -u untuk pertama kali push di branch baru

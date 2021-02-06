@@ -1,0 +1,132 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #2c061f;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+    padding: 3vh;
+    display: flex;
+    flex-direction: row;
+    background-color: #f8f1f1;
+    border-radius: 2vh;
+}
+
+.input-data{
+    width: 30%;
+    margin-right: 4vh;
+}
+
+.input-data .judul{
+    margin-bottom: 3vh;
+    text-align: center;
+    font-size: 4vh;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.input-data .form-input-box{
+    width: 100%;
+}
+
+.input-data .form-input-box .field-form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3vh;
+}
+
+.form-label{
+    margin-bottom: 1vh;
+    letter-spacing: 0.2vh;
+    font-weight: bold;
+}
+
+.double-form{
+    display: flex;
+    align-items: stretch;
+}
+
+.table-data{
+    width: 70%;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.table-data .judul{
+    font-size: 4vh;
+    font-weight: bold;
+    margin-bottom: 3vh;
+}
+
+.data-user{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.data-user td, .data-user th{
+    border: 0.7vh solid #ddd;
+    padding: 2vh;
+}
+
+.data-user th {
+    text-align: left;
+    background-color: #4CAF50;
+    color: aliceblue;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.form-input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-input-radio{
+    display: inline-block;
+    width: 100%;
+    margin: 8px 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn-hijau{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.pagination{
+    margin: 2vh 0;
+}
+
+.button-page{
+    cursor : pointer;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+  

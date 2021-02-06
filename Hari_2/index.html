@@ -5,23 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test</title>
     <script src="./script.js" defer></script>
-    <style>
-        .bg-aqua{
-            background-color: aqua;
-        }
-
-        .bg-yellow{
-            background-color: yellow;
-        }
-
-        .text-bold{
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1 id="h1">Ini Header 1</h1>
-    <h1 class="bg-aqua">Ini Header 1</h1>
-    <h1 apa="apaantuh" class="bg-aqua">Ini Header 1</h1>
+    <div class="container">
+        <div class="input-data">
+            <div class="judul">
+                Input Data Diri
+            </div>
+            <form class="form-input-box" id="form-input" name="formBio">
+                <div class="field-form">
+                    <label for="nama" class="form-label">Nama</label>
+                    <input type="text" class="form-input" name="nama" placeholder="Masukkan Nama">
+                </div>
+                <div class="field-form">
+                    <label for="ttl" class="form-label">TTL</label>
+                    <div class="double-form">
+                        <input style="flex-grow: 5; margin-right: 1vh;" type="text" class="form-input" name="tempat" id="tempat" placeholder="Masukkan tempat lahir">
+                        <input style="flex-grow: 5;" type="date" class="form-input" id="tanggal" name="tanggal">
+                    </div>
+                </div>
+                <div class="field-form">
+                    <label for="nama" class="form-label">Jenis Kelamin</label>
+                    <div class="form-input-radio">
+                        <input type="radio" name="jk" value="L">
+                        <label for="">Laki-laki</label>
+                    </div>
+                    <div class="form-input-radio">
+                        <input type="radio" name="jk" value="P">
+                        <label for="">Perempuan</label>
+                    </div>
+                </div>
+
+                <div class="field-form">
+                    <label for="nama" class="form-label" style="display: block; width: 100%;">Hobby</label>
+                    <div class="form-input-radio">
+                        <input type="checkbox" name="hobby" value="Berenang">
+                        <label for="">Berenang</label>
+                    </div>
+                    <div class="form-input-radio">
+                        <input type="checkbox" name="hobby" value="Jogging">
+                        <label for="">Jogging</label>
+                    </div>
+                    <div class="form-input-radio">
+                        <input type="checkbox" name="hobby" value="Bersepeda">
+                        <label for="">Bersepeda</label>
+                    </div>
+                    <div class="form-input-radio">
+                        <input type="checkbox" name="hobby" value="Futsal">
+                        <label for="">Futsal</label>
+                    </div>
+                </div>
+                <div class="field-form">
+                    <label for="agama" class="form-label">Agama</label>
+                    <select name="agama" class="form-input" id="agama">
+                        <option value="">Pilih Agama</option>
+                        <option value="Islam">Islam</option>
+                        <option value="Kristen">Kristen</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Budha">Budha</option>
+                    </select>
+                </div>
+                <div class="field-form">
+                    <label for="alamat" class="form-label">Alamat</label>
+                    <textarea id="alamat" class="form-input" rows="5" placeholder="Masukkan Alamat" name="alamat"></textarea>
+                </div>
+                <div class="field-form">
+                    <button type="submit" class="btn-hijau" data-jenis="submit" id="submit-btn" title="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="table-data">
+            <div class="judul">
+                Table Data User
+            </div>
+            <table class="data-user">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Tempat, tanggal lahir</th>
+                        <th>Umur</th>
+                        <th>Gender</th>
+                        <th>Hobby</th>
+                        <th>Agama</th>
+                        <th>Alamat</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="isi-data">
+                </tbody>
+            </table>
+            <div class="pagination" id="pagination">
+                
+            </div>
+        </div>
+    </div>
 </body>
 </html>

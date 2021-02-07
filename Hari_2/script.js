@@ -9,13 +9,16 @@ const inputAgama    = formInput.agama;
 const inputAlamat   = formInput.alamat;
 const isiData       = document.querySelector("#isi-data");
 const pagination    = document.querySelector("#pagination");
+const searchBar     = document.querySelector("#search-bar");
 
+let idUser = 1;
 let limit = 4;
 let currPage = 1;
 let updatedIndex = -1;
 
 let dataUser = [
     {
+        id : idUser++,
         nama : "Silo Mardadi",
         ttl : "Bogor, 1998-03-20",
         umur : "22",
@@ -25,6 +28,7 @@ let dataUser = [
         agama : "Islam"
     },
     {
+        id : idUser++,
         nama : "Budiyono",
         ttl : "Bandung, 1998-03-12",
         umur : "22",
@@ -34,15 +38,17 @@ let dataUser = [
         agama : "Islam"
     },
     {
+        id : idUser++,
         nama : "Agung",
         ttl : "Bekasi, 1998-01-12",
         umur : "22",
         alamat : "Bekasi",
         gender : "L",
-        hobby : "Joging",
+        hobby : "Jogging",
         agama : "Islam"
     },
     {
+        id : idUser++,
         nama : "Bibah",
         ttl : "Depok, 1998-02-20",
         umur : "22",
@@ -52,6 +58,7 @@ let dataUser = [
         agama : "Islam"
     },
     {
+        id : idUser++,
         nama : "Mang Udin",
         ttl : "Medan, 1998-03-02",
         umur : "22",
@@ -61,6 +68,7 @@ let dataUser = [
         agama : "Islam"
     },
     {
+        id : idUser++,
         nama : "Alif",
         ttl : "Planet Bekasi, 1998-02-02",
         umur : "22",
@@ -70,6 +78,7 @@ let dataUser = [
         agama : "Islam"
     },
     {
+        id : idUser++,
         nama : "Lala",
         ttl : "Bogor, 1998-01-02",
         umur : "22",
@@ -79,6 +88,7 @@ let dataUser = [
         agama : "Islam"
     },
     {
+        id : idUser++,
         nama : "Devi",
         ttl : "Bogor, 1998-04-14",
         umur : "22",
@@ -88,6 +98,7 @@ let dataUser = [
         agama : "Islam"
     },
     {
+        id : idUser++,
         nama : "Kris",
         ttl : "Cirebon, 1998-04-13",
         umur : "22",
@@ -97,6 +108,7 @@ let dataUser = [
         agama : "Islam"
     },
     {
+        id : idUser++,
         nama : "Rizki",
         ttl : "Sleman, 1998-04-12",
         umur : "22",
@@ -119,25 +131,33 @@ formInput.addEventListener("submit", (e)=>{
         });
 
         let objectUser = {
+            id : idUser++,
             nama : inputNama.value,
             ttl : `${inputTempat.value}, ${inputTanggal.value}`,
             umur : hitungUmur(new Date(inputTanggal.value)),
             alamat : inputAlamat.value,
             gender : inputGender.value,
-            hobby : arrHobby.join(" ,"),
+            hobby : arrHobby.join(", "),
             agama : inputAgama.value
         }
-
         if (btnSubmit.getAttribute("data-jenis") == "submit"){
             dataUser.push(objectUser);
+            removeFieldInput();
+            alert("Data berhasil diinput");
         }else if(btnSubmit.getAttribute("data-jenis") == "update"){
-            if(updatedIndex > 0) updatedDo(objectUser, updatedIndex);
+            if(updatedIndex >= 0) doUpdate(objectUser, updatedIndex);
+            removeFieldInput();
+            alert("Data berhasil diubah");
         }
-        isiTable();
-        removeFieldInput();
+        isiTable(dataUser);
     }else{
         alert("Harap isi semua field");
     }
+});
+
+searchBar.addEventListener("keyup", () => {
+    console.log(searchBar.value);
+    isiTable(searchFunc(searchBar.value));
 });
 
 let pageFunc = () => {
@@ -145,7 +165,7 @@ let pageFunc = () => {
     nextPage.forEach(el => {
         el.addEventListener("click", (e) => {
             currPage = el.innerText;
-            isiTable();
+            isiTable(dataUser);
         });
     });
 
@@ -153,15 +173,28 @@ let pageFunc = () => {
     prevPage.forEach(el => {
         el.addEventListener("click", (e) => {
             currPage = el.innerText;
-            isiTable();
+            isiTable(dataUser);
         });
     });
 }
 
-let pageSet = (val) => {
+let searchFunc = (searchParams) => {
+
+    let searchVal = searchParams.toLowerCase();
+
+    let searchRes = dataUser.filter(val => {
+        return val.alamat.toLowerCase().search(searchVal) >= 0 || 
+        val.nama.toLowerCase().search(searchVal) >= 0 || 
+        val.hobby.toLowerCase().search(searchVal) >= 0
+    });
+
+    return searchRes;
+}
+
+let pageSet = (val, max) => {
     let startRow = 1;
     let maxRow = 5;
-    let maxPage = Math.ceil(dataUser.length/limit);
+    let maxPage = max;
     let deffRows = Math.floor(maxRow/2);
     let createDoc;
 
@@ -206,37 +239,38 @@ let pageSet = (val) => {
     }
 };
 
-let isiTable = () => {
+let isiTable = (arrData) => {
     let isi = "";
     let loopLength = currPage * 4;
     let offset = loopLength - 4;
 
     for (let i = offset; i < loopLength; i++) {
-        if (i < dataUser.length) {
+        if (i < arrData.length) {
+            let ind = (arrData.length - 1) - i;
             isi += `<tr>
                 <td>${i + 1}</td>
-                <td>${dataUser[i].nama}</td>
-                <td>${dataUser[i].ttl}</td>
-                <td>${dataUser[i].umur}</td>
-                <td>${dataUser[i].gender}</td>
-                <td>${dataUser[i].hobby}</td>
-                <td>${dataUser[i].agama}</td>
-                <td>${dataUser[i].alamat}</td>
+                <td>${arrData[ind].nama}</td>
+                <td>${arrData[ind].ttl}</td>
+                <td>${arrData[ind].umur}</td>
+                <td>${arrData[ind].gender}</td>
+                <td>${arrData[ind].hobby}</td>
+                <td>${arrData[ind].agama}</td>
+                <td>${arrData[ind].alamat}</td>
                 <td>
-                    <button onClick="editData(${i})" class="edit">edit</button>
-                    <button onClick="deleteData(${i})" class="delete">delete</button>
+                    <button onClick="editData(${arrData[ind].id})" class="edit">edit</button>
+                    <button onClick="deleteData(${arrData[ind].id})" class="delete">delete</button>
                 </td>
             </tr>`;
         }
     }
 
-    pageSet(currPage);
+    pageSet(currPage, Math.ceil(arrData.length/limit));
 
     isiData.innerHTML = isi;
     pageFunc();
 }
 
-isiTable();
+isiTable(dataUser);
 
 let hitungUmur = (tglLahir) => {
     let nowDate = new Date();
@@ -290,19 +324,28 @@ let validationCheck = () => {
     return isTrue;
 }
 
-let deleteData = (index) => {
+let deleteData = (id) => {
+    let index = dataUser.findIndex((value, index) => { 
+        return value.id == id;
+     });
     if(confirm("Apakah Anda yakin ingin menghapus data ini ?")){
         dataUser.splice(index, 1);
-        isiTable();
+        isiTable(dataUser);
     }
 }
 
-let editData = (index) => {
+let editData = (id) => {
+    removeFieldInput();
+
+    let index = dataUser.findIndex((value, index) => { 
+        return value.id == id;
+    });
+
     inputNama.value         = dataUser[index].nama;
     let arrTTL              = dataUser[index].ttl.split(",");
     inputTempat.value       = arrTTL[0]; 
     inputTanggal.value      = arrTTL[1].trim();
-    inputAlamat.innerText   = dataUser[index].alamat;
+    inputAlamat.value       = dataUser[index].alamat;
     inputAgama.value        = dataUser[index].agama;
     
     inputGender.forEach(el => {
@@ -312,7 +355,6 @@ let editData = (index) => {
     });
 
     let arrHob = dataUser[index].hobby.split(", ");
-    console.log(arrHob);
     arrHob.forEach(element => {
         inputHobby.forEach(el => {
             if(el.value == element){
@@ -326,7 +368,8 @@ let editData = (index) => {
 
 }
 
-let updatedDo = (object, index) => {
+let doUpdate = (object, index) => {
+    console.log(object);
     dataUser.splice(index, 1, object);
     updatedIndex = -1;
     btnSubmit.setAttribute("data-jenis", "submit");

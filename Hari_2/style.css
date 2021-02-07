@@ -53,10 +53,18 @@ body{
     margin-top: auto;
 }
 
-.table-data .judul{
+.table-data .header .judul{
     font-size: 4vh;
     font-weight: bold;
     margin-bottom: 3vh;
+}
+
+.table-data .header .seacrh{
+    margin-bottom: 3vh;
+    text-align: center;
+    font-size: 4vh;
+    text-transform: uppercase;
+    font-weight: bolder;
 }
 
 .data-user{
@@ -85,6 +93,15 @@ body{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+.search-bar{
+    width: 30vh;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
 }
 
 .form-input-radio{

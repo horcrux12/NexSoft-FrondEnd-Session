@@ -1,0 +1,16 @@
+npm install namaPackage => untuk di download dan di install di home folder
+npm install --global namaPackage => untuk di download di C:/ folder
+npm install --save namaPackage => untuk di downlaod di local folder projectnya
+
+package.json tidak boleh dihapus
+
+README.md => md=markdown;
+
+npm install --save untuk generate package.json
+
+react => untuk website dengan scope menengah s/d besar
+vue => untuk website dengan scope menengah s/d kecil
+
+virtual DOM untuk melakukan check element yang sama 
+
+Atomic design => untuk membangun kecepatan react

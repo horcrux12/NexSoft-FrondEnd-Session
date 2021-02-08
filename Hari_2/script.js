@@ -134,16 +134,218 @@ let dataUser = [
         gender : "L",
         hobby : "Berenang, Jogging",
         agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Silo Mardadi",
+        ttl : "Bogor, 1998-03-20",
+        umur : hitungUmur(new Date("1998-03-20")),
+        alamat : "Bogor",
+        gender : "L",
+        hobby : "Futsal, Bersepeda",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Budiyono",
+        ttl : "Bandung, 1998-03-12",
+        umur : hitungUmur(new Date("1998-03-12")),
+        alamat : "Cilacap",
+        gender : "L",
+        hobby : "Futsal",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Agung",
+        ttl : "Bekasi, 1998-01-12",
+        umur : hitungUmur(new Date("1998-01-12")),
+        alamat : "Bekasi",
+        gender : "L",
+        hobby : "Jogging",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Bibah",
+        ttl : "Depok, 1998-02-20",
+        umur : hitungUmur(new Date("1998-02-20")),
+        alamat : "Depok",
+        gender : "P",
+        hobby : "Berenang",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Mang Udin",
+        ttl : "Medan, 1998-03-02",
+        umur : "22",
+        alamat : "Tanggerang",
+        gender : "L",
+        hobby : "Berenang",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Alif",
+        ttl : "Planet Bekasi, 1998-02-02",
+        umur : "22",
+        alamat : "Bekas-si",
+        gender : "L",
+        hobby : "Berenang, Futsal",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Lala",
+        ttl : "Bogor, 1998-01-02",
+        umur : "22",
+        alamat : "Bogor",
+        gender : "P",
+        hobby : "Berenang",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Devi",
+        ttl : "Bogor, 1998-04-14",
+        umur : "22",
+        alamat : "Bogor",
+        gender : "P",
+        hobby : "Berenang, Jogging",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Kris",
+        ttl : "Cirebon, 1998-04-13",
+        umur : "22",
+        alamat : "Cirebon",
+        gender : "L",
+        hobby : "Berenang, Jogging",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Rizki",
+        ttl : "Sleman, 1998-04-12",
+        umur : "22",
+        alamat : "Sleman",
+        gender : "L",
+        hobby : "Berenang, Jogging",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Silo Mardadi",
+        ttl : "Bogor, 1998-03-20",
+        umur : hitungUmur(new Date("1998-03-20")),
+        alamat : "Bogor",
+        gender : "L",
+        hobby : "Futsal, Bersepeda",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Budiyono",
+        ttl : "Bandung, 1998-03-12",
+        umur : hitungUmur(new Date("1998-03-12")),
+        alamat : "Cilacap",
+        gender : "L",
+        hobby : "Futsal",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Agung",
+        ttl : "Bekasi, 1998-01-12",
+        umur : hitungUmur(new Date("1998-01-12")),
+        alamat : "Bekasi",
+        gender : "L",
+        hobby : "Jogging",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Bibah",
+        ttl : "Depok, 1998-02-20",
+        umur : hitungUmur(new Date("1998-02-20")),
+        alamat : "Depok",
+        gender : "P",
+        hobby : "Berenang",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Mang Udin",
+        ttl : "Medan, 1998-03-02",
+        umur : "22",
+        alamat : "Tanggerang",
+        gender : "L",
+        hobby : "Berenang",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Alif",
+        ttl : "Planet Bekasi, 1998-02-02",
+        umur : "22",
+        alamat : "Bekas-si",
+        gender : "L",
+        hobby : "Berenang, Futsal",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Lala",
+        ttl : "Bogor, 1998-01-02",
+        umur : "22",
+        alamat : "Bogor",
+        gender : "P",
+        hobby : "Berenang",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Devi",
+        ttl : "Bogor, 1998-04-14",
+        umur : "22",
+        alamat : "Bogor",
+        gender : "P",
+        hobby : "Berenang, Jogging",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Kris",
+        ttl : "Cirebon, 1998-04-13",
+        umur : "22",
+        alamat : "Cirebon",
+        gender : "L",
+        hobby : "Berenang, Jogging",
+        agama : "Islam"
+    },
+    {
+        id : idUser++,
+        nama : "Rizki",
+        ttl : "Sleman, 1998-04-12",
+        umur : "22",
+        alamat : "Sleman",
+        gender : "L",
+        hobby : "Berenang, Jogging",
+        agama : "Islam"
     }
 ];
 // END Data Dummy
+
+console.log(inputHobby);
 
 // Action listener
 formInput.addEventListener("submit", (e)=>{
     e.preventDefault();
     
     if (validation()) {
-        let arrHobby = []
+        let arrHobby = [];
         inputHobby.forEach(el => {
             if(el.checked == true){
                 arrHobby.push(el.value);
@@ -162,11 +364,12 @@ formInput.addEventListener("submit", (e)=>{
         }
         if (btnSubmit.getAttribute("data-jenis") == "submit"){
             dataUser.push(objectUser);
-            removeFieldInput();
+            emptyField();
+            currPage = 1;
             alert("Data berhasil diinput");
         }else if(btnSubmit.getAttribute("data-jenis") == "update"){
             if(updatedIndex >= 0) doUpdate(objectUser, updatedIndex);
-            removeFieldInput();
+            emptyField();
             alert("Data berhasil diubah");
         }
         isiTable(dataUser);
@@ -176,7 +379,6 @@ formInput.addEventListener("submit", (e)=>{
 });
 
 searchBar.addEventListener("keyup", () => {
-    console.log(searchBar.value);
     isiTable(searchFunc(searchBar.value));
 });
 // END Action listener
@@ -233,14 +435,14 @@ let pageSet = (val, max) => {
                 createDoc = document.createElement("a");
                 createDoc.classList.toggle("active");
                 createDoc.innerText = i;
-                createDoc.href = "javascript:void(0)";
+                createDoc.href = "#0";
                 pagination.appendChild(createDoc);
                 // isiPage += `<span class="button-page active" style="margin-right : 1vh;" data-page="${i}">${i}</span>`;
             }else {
                 createDoc = document.createElement("a");
                 createDoc.classList.toggle("pageClick");
                 createDoc.innerText = i;
-                createDoc.href = "javascript:void(0)";
+                createDoc.href = "#0";
                 pagination.appendChild(createDoc);
             }
         }
@@ -249,8 +451,8 @@ let pageSet = (val, max) => {
 
 let isiTable = (arrData) => {
     let isi = "";
-    let loopLength = currPage * 4;
-    let offset = loopLength - 4;
+    let loopLength = currPage * limit;
+    let offset = loopLength - limit;
 
     if (arrData.length > 0) {
         for (let i = offset; i < loopLength; i++) {
@@ -285,17 +487,8 @@ let isiTable = (arrData) => {
 
 isiTable(dataUser);
 
-let removeFieldInput = () => {
-    inputNama.value="";
-    inputTempat.value="";
-    inputTanggal.value="";
-    inputAlamat.value="";
-    inputAgama.value="";
-    inputGender.forEach(el => {
-        el.checked = false;
-    });
-
-    inputHobby.forEach(el => el.checked = false);
+let emptyField = () => {
+    formInput.reset();
 }
 
 let validation = () => {
@@ -322,6 +515,8 @@ let validationCheck = () => {
 }
 
 let deleteData = (id) => {
+    emptyField();
+    btnSubmit.setAttribute("data-jenis", "submit");
     let index = dataUser.findIndex((value, index) => { 
         return value.id == id;
      });
@@ -332,7 +527,7 @@ let deleteData = (id) => {
 }
 
 let editData = (id) => {
-    removeFieldInput();
+    emptyField();
 
     let index = dataUser.findIndex((value, index) => { 
         return value.id == id;

@@ -1,3 +1,7 @@
+let init = () => {
+    isiTable(dataUser);
+}
+
 const formInput     = document.formBio;
 const inputNama     = formInput.nama;
 const inputTempat   = formInput.tempat;
@@ -16,6 +20,7 @@ let idUser = 1;
 let limit = 4;
 let currPage = 1;
 let updatedIndex = -1;
+
 
 let hitungUmur = (tglLahir) => {
     let nowDate = new Date();
@@ -338,8 +343,6 @@ let dataUser = [
 ];
 // END Data Dummy
 
-console.log(inputHobby);
-
 // Action listener
 formInput.addEventListener("submit", (e)=>{
     e.preventDefault();
@@ -407,6 +410,7 @@ let searchFunc = (searchParams) => {
     return searchRes;
 }
 
+// set pagination number
 let pageSet = (val, max) => {
     let startRow = 1;
     let maxRow = 5;
@@ -414,6 +418,7 @@ let pageSet = (val, max) => {
     let deffRows = Math.floor(maxRow/2);
     let createDoc;
 
+    // limitation page by maxRow
     if((val - deffRows) <= 1){
         startRow = 1;
     }else{
@@ -424,6 +429,7 @@ let pageSet = (val, max) => {
             startRow = temp;
         }
     }
+    // END limitation page
 
     pagination.innerHTML = "";
     // for (let i = 1; i <= page; i++) {
@@ -449,6 +455,7 @@ let pageSet = (val, max) => {
     }
 };
 
+// create row table 
 let isiTable = (arrData) => {
     let isi = "";
     let loopLength = currPage * limit;
@@ -485,9 +492,8 @@ let isiTable = (arrData) => {
 
 }
 
-isiTable(dataUser);
-
 let emptyField = () => {
+    // Mengosongkan field input data
     formInput.reset();
 }
 
@@ -567,3 +573,5 @@ let doUpdate = (object, index) => {
     btnSubmit.setAttribute("data-jenis", "submit");
 }
 
+init();
+//init untuk function yang di load pertama kali;

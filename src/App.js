@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import {Table, Form} from "./template/template";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  
+  alertSubmit(e){
+    alert(e);
+  }
+  render() { 
+    return (
+      <div className="container">
+        <div className="input-data">
+          <div className="judul">
+                Input Data Diri
+          </div>
+          <Form funccob={this.alertSubmit}/>
+        </div>
+        <div className="table-data">
+          <div className="header">
+              <div className="judul">
+                  Table Data User
+              </div>
+              <div className="search">
+                  <label for="search-bar" className="form-label">Pencarian </label>
+                  <input type="text" id="search-bar" className="search-bar"/>
+              </div>
+          </div>
+          <Table/>
+        </div>
+      </div>
+    );
+  }
 }
-
+ 
 export default App;

@@ -1,0 +1,69 @@
+.input-data{
+    width: 100%;
+    margin-bottom: 7vh;
+}
+
+.input-data .judul{
+    margin-bottom: 3vh;
+    text-align: center;
+    font-size: 4vh;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.input-data .form-input-box{
+    width: 100%;
+}
+
+.input-data .form-input-box .field-form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3vh;
+}
+
+.form-label{
+    margin-bottom: 1vh;
+    letter-spacing: 0.2vh;
+    font-weight: bold;
+}
+
+.double-form{
+    display: flex;
+    align-items: stretch;
+}
+
+.form-input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.form-input-radio{
+    display: inline-block;
+    width: 100%;
+    margin: 8px 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn-hijau{
+    background-color: #1687a7; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.search-bar{
+    width: 30vh;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}

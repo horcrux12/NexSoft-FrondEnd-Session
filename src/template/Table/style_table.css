@@ -1,0 +1,62 @@
+.table-data{
+    width: 100%;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.table-data .header .judul{
+    font-size: 4vh;
+    font-weight: bold;
+    margin-bottom: 3vh;
+}
+
+.table-data .header .seacrh{
+    margin-bottom: 3vh;
+    text-align: center;
+    font-size: 4vh;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.data-user{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.data-user td, .data-user th{
+    border: 0.7vh solid #ddd;
+    padding: 2vh;
+}
+
+.data-user th {
+    text-align: left;
+    background-color: #1687a7;
+    color: aliceblue;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.pagination{
+    margin: 2vh 0;
+}
+
+.button-page{
+    cursor : pointer;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #1687a7;
+    color: white;
+}

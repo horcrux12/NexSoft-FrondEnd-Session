@@ -10,10 +10,10 @@ class Thead extends Component {
                         <th>Nama</th>
                         <th>Tempat, tanggal lahir</th>
                         <th>Umur</th>
+                        <th>Alamat</th>
                         <th>Gender</th>
                         <th>Hobby</th>
                         <th>Agama</th>
-                        <th>Alamat</th>
                         <th>Action</th>
                     </tr>
                 </thead>

@@ -6,13 +6,17 @@ class Select extends Component {
     //     super(props);
     //     this.state = {  }
     // }
+    handleChange = (el) => {
+        this.props.funcSet(el.target.name, el.target.value);
+    }
+
     render() { 
         const options = this.props.optionElement;
         const optionMap = options.map(el => {
-            return (<Option key={el.optionVal} optionVal={el.optionVal} textOption={el.textOption}/>);
+            return (<Option key={el.optionVal} optionVal={el.optionVal} textOption={el.textOption} selectedVal={el.selected}/>);
         });
         return ( 
-            <select name={this.props.selectName} className={this.props.classes}>
+            <select value={this.props.valSelected} onChange={this.handleChange} name={this.props.selectName} className={this.props.classes}>
                 {optionMap}
             </select>
         );

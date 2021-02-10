@@ -16,12 +16,14 @@ class Col extends Component {
     //     this.countUp();
     // }
 
-    editFunc = () => {
-        alert("Tombol edit di klik");
+    editFunc = (id) => {
+        this.props.updateFunc(id)
     }
 
-    hapusFunc = () => {
-        alert("Tombol hapus di klik");
+    hapusFunc = (id) => {
+        if(window.confirm("apakah anda yakin menghapus data ini ?")){
+            this.props.delFunc(id);  
+        } 
     }
     
     render() { 
@@ -38,8 +40,8 @@ class Col extends Component {
                     <td>{data.user.hobby}</td>
                     <td>{data.user.agama}</td>
                     <td>
-                        <button onClick={this.editFunc}>Edit</button>
-                        <button onClick={this.hapusFunc}>hapus</button>
+                        <button onClick={() => this.editFunc(data.user.id)}>Edit</button>
+                        <button onClick={() => this.hapusFunc(data.user.id)}>hapus</button>
                     </td>
                 </tr>
             </>

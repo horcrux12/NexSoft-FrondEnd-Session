@@ -12,7 +12,7 @@ class Table extends Component {
             <div>
                 <table className="data-user">
                     <Thead/>
-                    <Tbody/>
+                    <Tbody dataUser={this.props.dataUser} delFunc={this.props.delFunc} updateFunc={this.props.updateFunc}/>
                 </table>
             </div>
          );

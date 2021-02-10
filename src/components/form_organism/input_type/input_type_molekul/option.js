@@ -5,10 +5,14 @@ class Option extends Component {
     //     super(props);
     //     this.state = {  }
     // }
-    render() { 
-        return ( 
-            <option defaultValue={this.props.optionVal}>{this.props.textOption}</option>
-        );
+    render() {
+        return (<option defaultValue={this.props.optionVal}>{this.props.textOption}</option>)
+
+        // if (this.props.selectedVal == true) {
+        // }else{
+        //     return (<option defaultValue={this.props.optionVal}>{this.props.textOption}</option>)
+        // } 
+        
     }
 }
  

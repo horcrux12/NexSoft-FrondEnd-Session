@@ -5,15 +5,39 @@ class Input extends Component {
     //     super(props);
     //     this.state = {  }
     // }
+
+    handleChange = (el) => {
+        if(el.target.type == "checkbox"){
+            this.props.inputProp.funcSet(el.target.name, el.target.value, el.target.checked)
+        }else{
+            this.props.inputProp.funcSet(el.target.name, el.target.value)
+        }
+    }
+
     render() { 
         const value = this.props
-        return ( 
-            <input type={value.inputProp.inputType} 
-            name={value.inputProp.inputname} 
-            className={value.inputProp.classes}
-            placeholder={value.inputProp.inputPh}
-            defaultValue={value.inputProp.inputVal}></input>
-        );
+        if (value.checked != undefined) {
+            return ( 
+                <input type={value.inputProp.inputType} 
+                    name={value.inputProp.inputname} 
+                    className={value.inputProp.classes}
+                    placeholder={value.inputProp.inputPh}
+                    value={value.inputProp.inputVal} 
+                    onChange={this.handleChange}
+                    checked={value.checked}
+                />
+            );
+        }else{
+            return ( 
+                <input type={value.inputProp.inputType} 
+                    name={value.inputProp.inputname} 
+                    className={value.inputProp.classes}
+                    placeholder={value.inputProp.inputPh}
+                    value={value.inputProp.inputVal} 
+                    onChange={this.handleChange}
+                />
+            );
+        }
     }
 }
  

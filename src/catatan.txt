@@ -1,0 +1,34 @@
+* Pages
+-----------------------------------
+data_barang
+data_user
+data_transaksi
+keranjang
+tambah_user
+
+
+* Component
+------------------------------------
+table
+form
+menu
+
+
+* Organism
+------------------------------------
+table
+    thead
+    tbody
+    tr
+form
+    Field
+    label
+    input
+    select
+    textarea
+
+* Templates
+------------------------------------
+login 
+navbar
+body

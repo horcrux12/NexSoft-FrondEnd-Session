@@ -1,0 +1,30 @@
+.table-data-transaksi{
+    width: 100%;
+    margin-bottom: auto;
+    margin-top: 5vh;
+}
+
+.table-data-transaksi .header .judul{
+    font-size: 4vh;
+    font-weight: bold;
+    margin-bottom: 3vh;
+}
+
+.data-transkasi{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.data-transkasi td, .data-transkasi th{
+    border: 0.7vh solid #ddd;
+    padding: 2vh;
+}
+
+.data-transkasi th {
+    text-align: left;
+    background-color: #1687a7;
+    color: aliceblue;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}

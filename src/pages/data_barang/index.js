@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { Redirect} from "react-router-dom";
 
 import Tr from "../../components/table_row";
 
@@ -29,7 +30,9 @@ class DataBarang extends Component {
     // Rendering
     render() { 
         const{dataBarang} = this.state
-
+        if (!this.props.isLogin) {
+            return <Redirect to="/login"/>
+        }
         let dataHeader = dataBarang.map((value, index) => {
             return(
                 <Tr type="deletedOnly" key={value.id} idBarang={value.id} 
@@ -61,7 +64,6 @@ class DataBarang extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.barangReducer.dataBarang)
   return {
     dataBarang: state.barangReducer.dataBarang,
   };

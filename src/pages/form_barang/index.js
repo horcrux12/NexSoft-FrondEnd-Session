@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect} from "react-router-dom";
 
 import {
   Input,
@@ -41,6 +42,9 @@ class FormBarang extends Component {
   // End Function
 
   render() {
+    if (!this.props.isLogin) {
+        return <Redirect to="/login"/>
+    }
     const { namaBarang, hargaBarang } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
@@ -87,9 +91,9 @@ class FormBarang extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.barangReducer.dataBarang)
   return {
     dataBarang: state.barangReducer.dataBarang,
+    isLogin : state.Auth.statusLogin
   };
 };
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect} from "react-router-dom";
-import {connect} from "react-redux";
 
 class Home extends Component {
     constructor(props) {
@@ -20,9 +19,4 @@ class Home extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-      isLogin : state.Auth.statusLogin
-    };
-};
-export default connect(mapStateToProps)(Home);
+export default Home;

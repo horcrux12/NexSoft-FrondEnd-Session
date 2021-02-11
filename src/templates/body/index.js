@@ -59,7 +59,7 @@ class Body extends Component {
         return ( 
             <Switch>
                 <Route path="/" exact>
-                    <Home/>
+                    <Home isLogin={this.props.isLogin}/>
                 </Route>
                 <Route path="/transaksi">
                     <div>
@@ -73,12 +73,11 @@ class Body extends Component {
                         submitTrans={this.submitTrans}
                         />
                 </Route>
-                <Route path="/datauser">
-                    <TranskasiBody dataTrans={this.state.dataTransaksiBarang} 
-                        delTransFunc={this.delTransFunc}
-                        totalBayar={this.state.totalBayar}
-                        submitTrans={this.submitTrans}
-                        />
+                <Route path="/databarang">
+                    <DataBarang isLogin={this.props.isLogin}/>
+                </Route>
+                <Route path="/tambahbarang">
+                    <FormBarang/>
                 </Route>
                 <Route path="/tambahuser">
                     <FormUser/>

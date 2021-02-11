@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import md5 from "md5"
+import { Redirect} from "react-router-dom";
 
 import {
   Input,
@@ -45,6 +46,9 @@ class FormUser extends Component {
 
   // Render start
   render() {
+    if (!this.props.isLogin) {
+        return <Redirect to="/login"/>
+    }
     const { username, password, role } = this.state;
     return (
       <form onSubmit={this.handleSubmit} className="form-input-box">
@@ -122,6 +126,7 @@ const mapStateToProps = (state) => {
     console.log("redux",state.userReducer.dataUser)
   return {
     dataUser: state.userReducer.dataUser,
+    isLogin : state.Auth.statusLogin
   };
 };
 

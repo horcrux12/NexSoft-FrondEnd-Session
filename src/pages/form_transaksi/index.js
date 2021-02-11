@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux"
+import { Redirect} from "react-router-dom";
 
 import {
     Input,
@@ -45,6 +46,9 @@ class FormTransaksi extends Component {
     // End Function
 
     render() { 
+        if (!this.props.isLogin) {
+            return <Redirect to="/login"/>
+        }
         let selectBarang = [{optionVal: "", textOption: "Pilih Barang"}]
         const {dataBarang} = this.props
         const {qty, idBarang} = this.state
@@ -99,6 +103,7 @@ class FormTransaksi extends Component {
 const mapStateToProps = (state) => {
   return {
     dataBarang: state.barangReducer.dataBarang,
+    isLogin : state.Auth.statusLogin
   };
 };
  

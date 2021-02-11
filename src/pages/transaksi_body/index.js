@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect} from "react-router-dom";
 
 import Tr from "../../components/table_row";
 import "./style.css";
@@ -12,6 +13,9 @@ class TranskasiBody extends Component {
     }
 
     render() { 
+        if (this.props.isLogin) {
+            return <Redirect to="/login"/>
+        }
         const {dataTrans, totalBayar, delTransFunc, submitTrans} = this.props
         // console.log("trans bosy",this.props.totalBayar)
         let dataHeader = dataTrans.map((value, index) => {
@@ -54,5 +58,4 @@ class TranskasiBody extends Component {
         );
     }
 }
- 
 export default TranskasiBody;

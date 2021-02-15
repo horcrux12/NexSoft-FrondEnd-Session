@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko buah</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./scripts.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="judul">
+            Toko Buah
+        </div>
+        <div class="form">
+            <div class="form-box">
+                <div class="judul-box">
+                    Form buah
+                </div>
+                <form id="form-barang" name="formBuah">
+                    <div class="field-input">
+                        <label>Nama Buah</label>
+                        <input class="field-form" type="text" name="namaBuah" placeholder="Masukkan Nama buah">
+                    </div>
+                    <div class="field-input">
+                        <label>Stok Buah</label>
+                        <input class="field-form" type="number" min="0" name="stokBuah" placeholder="Masukkan Stok buah">
+                    </div>
+                    <div class="field-input">
+                        <label>Harga Buah</label>
+                        <input class="field-form" type="number" min="0" name="hargaBuah" placeholder="Masukkan Harga buah">
+                    </div>
+                    <div class="field-input">
+                        <button type="submit">simpan</button>
+                    </div>
+                </form>
+            </div>
+            <div class="form-box">
+                <div class="judul-box">
+                    Form Pembeli
+                </div>
+                <form id="form-buah" name="formBeli">
+                    <div class="field-input">
+                        <label>Nama Buah</label>
+                        <select class="field-form" name="namaBeli">
+                            <option value="">Pilih Buah</option>
+                        </select>
+                    </div>
+                    <div class="field-input">
+                        <label>Jumlah Buah</label>
+                        <input class="field-form" type="number" min="0" name="jumlah" placeholder="Masukkan jumlah buah">
+                    </div>
+                    <div class="field-input">
+                        <button type="submit">Beli</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="table">
+            <div class="judul-table">
+                Table Barang
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nama</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="data">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

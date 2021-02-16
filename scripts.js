@@ -150,6 +150,7 @@ const hapusTrigg = (id) => {
     if (cariUbah >= 0) {
         daftarBuah.splice(cariUbah, 1)
     }
+    drawBuah()
 }
 // end function
 

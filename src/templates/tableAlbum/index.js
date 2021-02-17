@@ -33,7 +33,7 @@ class TableAlbum extends Component {
     }
 
     render() { 
-        console.log(this.props);
+        // console.log(this.props);
         let no = 1;
         let arrTampil;
         if(this.state.loading){

@@ -21,7 +21,7 @@ class Table extends Component {
 
     render() { 
         let arr = []
-        console.log(!arr.length);
+        // console.log(!arr.length);
         const {tampil, loading} = this.props
         let no = 1;
         let arrTampil;

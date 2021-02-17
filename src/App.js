@@ -20,7 +20,7 @@ class App extends Component {
   componentDidMount(){
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(resp => resp.json())
-        .then(json => this.setState({ tampil : json, loading : false}))
+        .then(json => {this.setState({ tampil : json, loading : false})})
         .catch(err => {
             alert("gagal load data " + err)
             this.setState({ loading : false }) 

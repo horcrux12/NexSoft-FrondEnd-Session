@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch, useHistory} from "react-router-dom";
+import { connect } from "react-redux";
 
 import "./App.css"
-import { Table, TableAlbum, Gallery, FormUp } from "./templates";
+import { Table, TableAlbum, Gallery, FormUp, Login } from "./templates";
 
 class App extends Component {
   constructor(props) {
@@ -97,6 +98,8 @@ class App extends Component {
       alert("data tidak ditemukan");
     }
 
+    this.props.doLogin(data[cariUpdate])
+
     this.setState({
       tampil : data
     })
@@ -121,38 +124,55 @@ class App extends Component {
               <Route path="/" exact component={
                 () => {
                   let history = useHistory()
-                  return(<Table history={history} updateUser={this.updateHandle} deleteUser={this.deleteUser} loading = {loading} tampil = {tampil} funcSetId={this.setIdUser}/>)
+                  return(<Table loginStatus={this.props.loginStatus} history={history} updateUser={this.updateHandle} deleteUser={this.deleteUser} loading = {loading} tampil = {tampil} funcSetId={this.setIdUser}/>)
                 }}>
                 
               </Route>
               <Route path="/album" component={
                 () => {
                   let history = useHistory()
-                  return(<TableAlbum history={history} idUser={userId} funcSetId={this.setIdUser} funcSetAlbum={this.setAlbumUser}/>)
+                  return(<TableAlbum loginStatus={this.props.loginStatus} history={history} idUser={userId} funcSetId={this.setIdUser} funcSetAlbum={this.setAlbumUser}/>)
                 }}/>
               <Route path="/gallery" component={
                 () => {
                   let history = useHistory()
-                  return(<Gallery history={history} idAlbum={albumId} funcSetAlbum={this.setAlbumUser}/>)
+                  return(<Gallery loginStatus={this.props.loginStatus} history={history} idAlbum={albumId} funcSetAlbum={this.setAlbumUser}/>)
                 }
               }/>
               <Route path="/form" component={
                 () => {
                   let history = useHistory()
-                  return (<FormUp history={history} getObjUpdate={this.getObjUpdate} 
+                  return (<FormUp loginStatus={this.props.loginStatus} history={history} getObjUpdate={this.getObjUpdate} 
                       clearUpdate={this.clearUpdate} 
                       dataUpdate = {updatedObj}/>)
-                  
                   }
               }/>
-              {/* <Route path="/form" children={<FormUp getObjUpdate={this.getObjUpdate} 
-                      clearUpdate={this.clearUpdate} 
-                      dataUpdate = {updatedObj}/>}/> */}
+              <Route path="/login" component={
+                ()=> {
+                  let history = useHistory()
+                  return (<Login tampil = {tampil} history={history}/>)
+                }
+              }
+
+              />
             </Switch>
           </Router>
       </div>
     );
   }
 }
- 
-export default App;
+
+const mapStateToProps = state => {
+  return{
+    loginStatus : state.AuthReducer.statusLogin,
+    loginUser : state.AuthReducer.dataLogin
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return{
+      doLogin : (dataUser) => dispatch({ type : 'LOGIN_SUCCCESS', payload : dataUser})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 
 import Card from "../../components/card"
 import "./style.css"
@@ -39,6 +39,10 @@ class Gallery extends Component {
                     <Card key={el.id} imgSource={el.url} alt={el.title} desc={el.title}/>
                 )
             })
+        }
+
+        if (!this.props.loginStatus) {
+            return (<Redirect to="/login"/>)
         }
         return (
             <div className="gallery-sec">  

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux"
 
 class Table extends Component {
     constructor(props) {
@@ -31,6 +32,25 @@ class Table extends Component {
             </tr>)
         }else{
             arrTampil = this.props.tampil.map((el, idx) => {
+                if (this.props.userLogin.username === el.username) {
+                    return(
+                        <tr key={idx}>
+                            <td>{no++}</td>
+                            <td>{el.name}</td>
+                            <td>{el.username}</td>
+                            <td>{el.address.city}</td>
+                            <td>{el.company.name}</td>
+                            <td style={{textAlign:"center"}}>
+                                <Link to="/album">
+                                    <button className="btn-small btn-hijau" onClick={() => {this.setId(el.id)}}>Album</button>
+                                </Link>
+                                <Link to="/form">
+                                    <button className="btn-small btn-kuning" onClick={() => {this.props.updateUser(el.id)}}>Update</button>
+                                </Link>
+                            </td>
+                        </tr>
+                    )
+                }
                 return(
                     <tr key={idx}>
                         <td>{no++}</td>
@@ -43,15 +63,19 @@ class Table extends Component {
                                 <button className="btn-small btn-hijau" onClick={() => {this.setId(el.id)}}>Album</button>
                             </Link>
                                 <button className="btn-small btn-merah" onClick={() => {this.deleteFunc(el.id)}}>Delete</button>
-                            <Link to="/form">
+                            {/* <Link to="/form">
                                 <button className="btn-small btn-kuning" onClick={() => {this.props.updateUser(el.id)}}>Update</button>
-                            </Link>
+                            </Link> */}
                         </td>
                     </tr>
                 )
             })
         }
         
+        if (!this.props.loginStatus) {
+            return (<Redirect to="/login"/>)
+        }
+
         return ( 
             <>
                 <div className="judul" style={{ marginTop :"10vh"}}>
@@ -77,4 +101,11 @@ class Table extends Component {
     }
 }
  
-export default Table;
+const mapStateToProps = state => {
+    // console.log(state.AuthReducer.dataLogin);
+    return{
+        userLogin : state.AuthReducer.dataLogin
+    }
+}
+
+export default connect(mapStateToProps)(Table);

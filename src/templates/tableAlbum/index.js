@@ -62,6 +62,9 @@ class TableAlbum extends Component {
             })
         }
                 
+        if (!this.props.loginStatus) {
+            return (<Redirect to="/login"/>)
+        }
         return ( 
             <div className="table-album">
                 <div className="judul" style={{ marginTop :"3vh", marginBottom:"0", fontSize:"4vh", fontWeight:"bold"}}>

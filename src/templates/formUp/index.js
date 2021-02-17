@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, useHistory } from "react-router-dom"
+import { Link, Redirect, useHistory } from "react-router-dom"
 import {Input,Textarea, Label, Select, FormField} from "../../components/form"
 
 import "./style.css";
@@ -61,9 +61,14 @@ class FormUp extends Component {
     }
 
     render() { 
-        const { dataUpdate } = this.props;
+        const { dataUpdate, loginStatus } = this.props;
         // console.log(this.props);
         const {id, name, city, username, company} = this.state
+        
+        if (!loginStatus) {
+            return <Redirect to="/login"/>
+        }
+        
         return ( 
             <div className="form">
                 <FormField classes="field-input">

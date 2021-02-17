@@ -1,136 +1,155 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Redirect, Route, Switch, useHistory} from "react-router-dom";
+
 import "./App.css"
-import Button from "./components/button"
-import Input from "./components/input";
+import { Table, TableAlbum, Gallery, FormUp } from "./templates";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      tampil : ""
-    }
-    this.combine = true;
-    this.operator = "";
-    this.lastNumber = 0;
-  }
-
-  numberClick = (el) => {
-    let hasilTampil = this.state.tampil;
-    if(this.combine){
-      hasilTampil += el.target.innerText;
-      this.setState({
-        tampil : hasilTampil
-      })
-    }else{
-      hasilTampil = el.target.innerText;
-      this.combine = true;
-      this.setState({
-        tampil : hasilTampil
-      })
-    }
-    this.lastNumber = this.state.tampil;
-  }
-
-  operatorClick = (el) => {
-    if (this.operator == "") {
-      this.operator = el.target.innerText;
-      this.combine = false;
-    }else{
-      let jumlah;
-      // console.log(this.operator);
-      // console.log(this.lastNumber);
-      switch (this.operator) {
-        case "+":
-          jumlah = parseFloat(this.state.tampil) + parseFloat(this.lastNumber);
-          break;
-        case "-":
-          jumlah = parseFloat(this.state.tampil) - parseFloat(this.lastNumber);
-          break;
-        case "x":
-          jumlah = parseFloat(this.state.tampil) * parseFloat(this.lastNumber);
-          break;
-        case "/":
-          jumlah = parseFloat(this.state.tampil) / parseFloat(this.lastNumber);
-          break;
-        default:
-          jumlah = 0;
-          break;
-      }
-      this.setState({
-        tampil : jumlah + ""
-      })
-      this.lastNumber = jumlah
-      this.combine = false;
+      tampil : [],
+      loading : true,
+      userId : -1,
+      albumId : -1,
+      updatedObj : {},
+      redirect : ""
     }
   }
 
-  hasilClick = () => {
-    let jumlah;
-    switch (this.operator) {
-      case "+":
-        jumlah = parseFloat(this.state.tampil) + parseFloat(this.lastNumber);
-        break;
-      case "-":
-        jumlah = parseFloat(this.state.tampil) - parseFloat(this.lastNumber);
-        break;
-      case "x":
-        jumlah = parseFloat(this.state.tampil) * parseFloat(this.lastNumber);
-        break;
-      case "/":
-        jumlah = parseFloat(this.state.tampil) / parseFloat(this.lastNumber);
-        break;
-      default:
-        jumlah = 0;
-        break;
-    }
-    this.combine = false;
-    this.operator = "";
-    this.lastNumber = jumlah
+  componentDidMount(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(resp => resp.json())
+        .then(json => this.setState({ tampil : json, loading : false}))
+        .catch(err => {
+            alert("gagal load data " + err)
+            this.setState({ loading : false }) 
+        })
+        .finally(this.setState({ loading : true }))
+  }
+
+  setIdUser = (id) => {
     this.setState({
-      tampil : jumlah + ""
+      userId : id
     })
   }
 
-  clearClick = () => {
-    this.combine = true;
-    this.operator = "";
-    this.lastNumber = 0;
+  setAlbumUser = (id) => {
     this.setState({
-      tampil : ""
+      albumId : id
+    })
+  }
+
+  deleteUser = (id) => {
+    let data = this.state.tampil
+    let idx = data.findIndex(el => el.id == id)
+    if (idx < 0) {
+      alert ("data tidak ada")
+    }else {
+      data.splice(idx, 1);
+      this.setState({
+        tampil : data
+      })
+    }
+  }
+
+  updateHandle = (id) => {
+    let data = this.state.tampil
+    let cariUpdate = data.findIndex(el => el.id === id);
+    if(cariUpdate < 0){
+      alert("data tidak ada");
+      this.setState({
+        redirect : "/"
+      })
+    }else{
+      this.setState({
+        updatedObj : data[cariUpdate]
+      })
+    }
+  }
+
+  clearUpdate = () => {
+    this.setState({
+      updatedObj : {}
+    })
+  }
+
+  getObjUpdate = (obj) => {
+    // console.log(this.state.tampil);
+    let data = this.state.tampil
+    let cariUpdate = data.findIndex(el => el.id === obj.id);
+    if (cariUpdate >=0) {
+      data[cariUpdate] = {
+        ...data[cariUpdate], 
+        id:obj.id, 
+        name:obj.name,
+        username : obj.username,
+        address : {
+          ...data[cariUpdate].address,
+          city : obj.city
+        },
+        company: {
+          ...data[cariUpdate].company,
+          name : obj.company
+        }
+      }
+    }else{
+      alert("data tidak ditemukan");
+    }
+
+    this.setState({
+      tampil : data
     })
   }
 
   render() { 
+    const {loading, tampil, userId, albumId, updatedObj} = this.state
+
+    if (this.state.redirect != "") {
+      this.setState({
+        redirect : ""
+      }, () => {
+        return (
+          <Redirect to={this.state.redirect}/>
+        )
+      })
+    }
     return ( 
       <div className="container">
-        <Input type="text" value={this.state.tampil}/>
-        <div className="box">
-          <Button funcClick={this.numberClick}>1</Button>
-          <Button funcClick={this.numberClick}>2</Button>
-          <Button funcClick={this.numberClick}>3</Button>
-          <Button funcClick={this.operatorClick}>+</Button>
-        </div>
-        <div className="box">
-          <Button funcClick={this.numberClick}>4</Button>
-          <Button funcClick={this.numberClick}>5</Button>
-          <Button funcClick={this.numberClick}>6</Button>
-          <Button funcClick={this.operatorClick}>-</Button>
-        </div>
-        <div className="box">
-          <Button funcClick={this.numberClick}>7</Button>
-          <Button funcClick={this.numberClick}>8</Button>
-          <Button funcClick={this.numberClick}>9</Button>
-          <Button funcClick={this.operatorClick}>x</Button>
-        </div>
-        <div className="box">
-          <Button funcClick={this.numberClick}>0</Button>
-          <Button funcClick={this.numberClick}>.</Button>
-          <Button funcClick={this.hasilClick}>=</Button>
-          <Button funcClick={this.operatorClick}>/</Button>
-        </div>
-        <div className="box">
-          <Button funcClick={this.clearClick}>clear</Button>
-        </div>
+          <Router>
+            <Switch>
+              <Route path="/" exact component={
+                () => {
+                  let history = useHistory()
+                  return(<Table history={history} updateUser={this.updateHandle} deleteUser={this.deleteUser} loading = {loading} tampil = {tampil} funcSetId={this.setIdUser}/>)
+                }}>
+                
+              </Route>
+              <Route path="/album" component={
+                () => {
+                  let history = useHistory()
+                  return(<TableAlbum history={history} idUser={userId} funcSetId={this.setIdUser} funcSetAlbum={this.setAlbumUser}/>)
+                }}/>
+              <Route path="/gallery" component={
+                () => {
+                  let history = useHistory()
+                  return(<Gallery history={history} idAlbum={albumId} funcSetAlbum={this.setAlbumUser}/>)
+                }
+              }/>
+              <Route path="/form" component={
+                () => {
+                  let history = useHistory()
+                  return (<FormUp history={history} getObjUpdate={this.getObjUpdate} 
+                      clearUpdate={this.clearUpdate} 
+                      dataUpdate = {updatedObj}/>)
+                  
+                  }
+              }/>
+              {/* <Route path="/form" children={<FormUp getObjUpdate={this.getObjUpdate} 
+                      clearUpdate={this.clearUpdate} 
+                      dataUpdate = {updatedObj}/>}/> */}
+            </Switch>
+          </Router>
       </div>
     );
   }

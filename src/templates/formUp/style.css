@@ -1,0 +1,23 @@
+.form {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding: 3vh 0;
+    border-bottom: 1px solid black;
+  }
+  
+  .form .judul-form{
+    margin-bottom: 2vh;
+    font-size: 2.5vh;
+    font-weight: bold;
+    border-bottom: 0.1vh solid black;
+  }
+  
+  .field-form{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }

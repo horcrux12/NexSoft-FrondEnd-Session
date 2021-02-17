@@ -1,0 +1,10 @@
+.table-album{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.navi-album{
+    display: flex;
+    justify-content: flex-end;
+}
